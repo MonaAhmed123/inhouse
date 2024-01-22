@@ -26,7 +26,6 @@ public class Hooks {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-
         // 4- navigate to url
         driver.get("https://staging.inhouse.sa/");
     }
@@ -36,10 +35,6 @@ public class Hooks {
         // Quit the driver
         Thread.sleep(3000);
         driver.quit();
-    }
-
-    public WebDriver getDriver() {
-        return driver;
     }
 
 }

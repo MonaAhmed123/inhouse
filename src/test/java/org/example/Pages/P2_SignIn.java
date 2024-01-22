@@ -8,18 +8,27 @@ public class P2_SignIn {
     {
         PageFactory.initElements(Hooks.driver,this);
     }
-    @FindBy(xpath = "//a[@class='account-width' " +
-            "and @href='https://staging.inhouse.sa/ar/customer/account/login/']")
+
+    @FindBy(xpath = "//a[ @href='https://staging.inhouse.sa/ar/customer/account/login/referer/aHR0cHM6Ly9zdGFnaW5nLmluaG91c2Uuc2EvYXIv/']")
     public WebElement loginPage;
     @FindBy(xpath = "//input[@name='login[username]' and @id='email']")
     public WebElement emailField;
     @FindBy(xpath = "//input[@name='login[password]' and @id='pass']")
     public WebElement passwordField;
 
-    @FindBy(xpath ="//button[@type='submit' and contains(@class, 'login') and " +
-            "contains(@class, 'primary') and @name='send' and @id='send2']")
+    @FindBy(xpath = "//button[@class=\"action login primary\"]/span[contains(text(), \"تسجيل الدخول\")]")
     public WebElement loginButton;
 
-    @FindBy(xpath ="//a[@href='https://staging.inhouse.sa/en/customer/account/']")
-    public WebElement AccountPage;
+    @FindBy(xpath = "//div[@data-bind=\"html: $parent.prepareMessageForHtml(message.text)\"]")
+    public WebElement ErrorMessage;
+
+    @FindBy(xpath = "//div[@id='email-error']")
+    public WebElement emailErrorMessage;
+
+    @FindBy(xpath = "//div[@id='pass-error']")
+    public WebElement passErrorMessage;
+
+    @FindBy(xpath = "//label[@for='show-password' and contains(@class, 'label')]/span[contains(@data-bind, \"i18n: 'Show Password'\")]")
+    public  WebElement showPass;
 }
+
